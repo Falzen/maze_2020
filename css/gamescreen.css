@@ -1,0 +1,434 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none; 
+	padding: 0;
+	margin: 0;
+}
+
+
+#gamescreen-container {
+	height: 100vh;
+	background-color: black;
+}
+#gamescreen-content {
+	width: 100vw;
+	height: 800px;
+	position: relative;
+	margin: 0px auto;
+	padding: 1px 30px;
+}
+#game {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	margin-top: 40px;
+	padding: 40px 0;
+	background-color: #333;
+	box-shadow: 0 0 15px 5px black inset;
+}
+
+
+
+
+
+/* msg + stats */
+#messages-container {
+	display: flex;
+	flex-flow: column;
+	position: relative;
+}
+
+#message-content {
+	height: 500px;
+	width: 600px;
+	position: relative;
+	background-color: rgb(135,135,135);
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-bottom: 50px;
+	background: linear-gradient(rgb(135,135,135), rgb(85,85,85));
+}
+#scroll-effect {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(#333 0%, transparent);
+}
+ul#messages {
+	padding-top: 50px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* messages default style */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+#messages li {
+	border-bottom: 1px solid rgba(130,130,130,0.2);
+	padding: 5px 10px;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+#messages li span.ext {
+	display: inline-block;
+	width: 150px !important;
+	height: 12px;
+	border: 1px solid black;
+	background-color: black;
+}
+#messages li span.ins {
+	display: block;
+	height: 12px;
+	background-color: red;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* messages special styles */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+li.welcome {
+	color: tomato;
+	text-align: center;
+	font-size: 20px;
+	padding: 6px 0 6px 0;
+}
+li.encounter {
+	margin-top: 12px;
+}
+li.enemyAppears {
+	color: white;
+	font-weight: bold;
+	background-color: brown;
+	padding: 10px 0 5px 0;
+}
+li.victory {
+	color: green;
+	text-align: center;
+	background-color: lightblue;
+}
+li.victory img {	
+	filter: grayscale(100%);
+	transition: opacity 0.8s 0.8s ease-in, transform 0.8s 1s ease-in;
+}
+li.noDamageTaken {
+	font-weight: bold;
+	font-style: italic;
+	color: black;
+}
+li.promptForAction {
+	text-align: center;
+	padding: 10px 0;
+}
+li.level-up {
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 0 10px 0;
+	background: linear-gradient(goldenrod 15%, transparent, goldenrod 85%);
+}
+
+li.search-empty {
+}
+li.search-find{
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+
+
+
+
+
+
+
+
+
+#stats {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	background-color: black;
+}
+
+#enemyStats {
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+#playerStats,
+#enemyStats {
+	width: 45%;
+	height: 40px;
+}
+.stat-bar-ext {
+	position: relative;
+	display: block;
+	width: 100%;
+    height: 11px;
+    margin: 3px 0 0 0;
+}
+.stat-bar-ext.exp-bar-ext {
+	height: 4px;
+}
+.stat-bar-ins {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	transition: width 0.2s ease;
+}
+
+#playerStats .stat-bar-ext {
+	background: linear-gradient(90deg, black, grey);
+}
+#enemyStats .stat-bar-ext {
+	background: linear-gradient(90deg, grey, black);
+}
+.health-bar-ins {
+	background-color: brown;
+	box-shadow: 0 0 0 1px transparent;
+	transition: background-color 0.2s linear, 
+				width 0.4s ease,
+				boxShadow 0.2s ease;
+}
+.mana-bar-ins {
+	background-color: darkblue;
+	box-shadow: 0 0 0 1px transparent;
+	transition: background-color 0.2s linear, 
+				width 0.4s ease,
+				boxShadow 0.2s ease;
+}
+.exp-bar-ins {
+	background-color: #007e10;
+	box-shadow: 0 0 0 1px transparent;
+	transition: background-color 0.2s linear, 
+				width 0.4s ease,
+				boxShadow 0.2s ease;
+
+	width: 0%;
+}
+#playerStats .health-bar-ins,
+#playerStats .mana-bar-ins,
+#playerStats .exp-bar-ins {
+	left: 0;
+}
+#enemyStats .health-bar-ins,
+#enemyStats .mana-bar-ins,
+#enemyStats .exp-bar-ins {
+	right: 0;
+}
+
+
+
+
+
+
+
+
+#map-container {
+	width: 400px;
+	padding: 1px;
+}
+#map-content {
+	background-color: lightgrey;
+	padding: 1px;
+	margin-bottom: 5px;
+
+    perspective: 800px;
+}
+.map-thickness-container {
+}
+#map-content table#the-map {
+	position: relative;
+    transform: rotateX(45deg);
+    transform-origin: center;
+}
+
+
+
+
+
+#moves-and-actions {
+	height: 110px;
+	display: flex;
+	flex-flw: row nowrap;
+	justify-content: space-between;
+	background-color: black;
+	padding: 5px;
+}
+
+
+#moves-container {
+	width: 100px;
+	height: 100px;
+	background-color: #505050;
+	padding: 5px;
+	border-radius: 50%;
+}
+#moves-container span {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	background-color: #222;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	padding-top: 4px;
+	border-radius: 10px;
+}
+#moves-container span:hover {
+	background-color: #999;
+}
+.move-row {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+.move-row-2 {
+	justify-content: space-between;
+}
+
+
+
+#actions-container {
+	width: 290px;
+	height: 100%;
+	padding: 5px;
+
+}
+#actions-container > div {
+	width: 100%;
+}
+#idle,
+#fighting  {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+#fighting {
+}
+#idle > div,
+#fighting > div {
+	height: 50%;
+	width: 45%;
+	border: 1px solid black;
+	background-color: white;
+	cursor: pointer;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#fighting > div:hover {
+	background-color: #A04040;
+}
+
+#idle > div:hover{
+	background-color: #40A040;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.popup {
+	z-index: 200;
+	display: none;
+	width: 1000px;
+	height: 550px;
+	background-color: rgba(0,0,0,0.95);
+	box-shadow: 0px 9px 30px 0px black; 
+	position: absolute;
+	top: 80px;
+	left: calc(50% - 500px);
+}
+.popup-content {
+	position: relative;
+	height: 100%;
+	color: white;
+}
+.popup-cross {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 50px;
+	width: 50px;
+	font-size: 40px;
+	text-align: center;
+	color: white;
+	background-color: rgba(255,255,255,0.5);
+	font-family: consolas;
+	cursor: pointer;
+}
+.popup-cross:hover {
+	color: black;
+	background-color: rgba(255,255,255,0.95);
+}
+
+.popup-content h1,
+.popup-content h3,
+.popup-content p {
+	text-align: center;
+}
+
+
+.popup-content p {
+	margin-top: 60px;
+}
+#popup-levelup-content ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+}
+
+#popup-levelup-content li {
+	width: 250px;
+	text-align: center;
+}
+
+
+#level-up-buttons {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	margin-top: 60px;
+}
+
+#level-up-buttons button {
+	width: 250px;
+	height: 125px;
+	background-color: lightgrey;
+}
+#level-up-buttons button:hover {
+	background-color: white;
+}
+
+
+
+
+
+
+
+
+
+#gamescreen-container {
+}
+#gamescreen-content {
+}
+#game {
+}
+#messages-container {
+}

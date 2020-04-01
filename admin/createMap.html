@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/map_utils.css">
+        <link rel="stylesheet" href="../css/admin/createMap.css">
+    </head>
+
+	<body>
+		<div id="createMap-container">
+            <div id="createMap-content">
+              <h1 class="page-title">Create new map</h1>
+
+                <div class="position-setter" id="setExit">Set Exit position</div>
+                <div id="admin-map-container">
+                    <div id="admin-map-content">
+                        <table id="the-map"></table>
+                    </div>
+                </div>
+                <div class="position-setter" id="setStart">Set Start position</div>
+
+                <div id="start-exit-container">
+                    <button id="save">save</button>
+                    <button id="clear">clear</button>
+                </div>
+            </div> <!-- end #gamescreen-content -->
+            <div id="extra-infos">
+                <div class="info-container">
+                    <label for="map-name">Map name:</label>
+                    <input maxlength="30" type="text" id="map-name">
+                    </div>
+                <div class="info-container">
+                    <label for="map-level">Map level:</label>
+                    <select id="map-level">
+                      <option value="3" disabled>3 (not yet)</option>
+                      <option value="2" disabled>2 (not yet)</option>
+                      <option value="1" >1</option>
+                    </select>
+                </div>
+            </div> <!-- end #extra-infos -->
+        </div> <!-- end #gamescreen-container -->
+
+        <div id="popup-walls-array">
+            <div id="popup-content">
+            <span id="popup-cross">X</span>
+                <h3>New map's walls coordinates</h3>
+                <p id="new-map-walls-coordinates"></p>
+                <p>
+                    Map Name: <span id="popup-map-name"></span><br>
+                    Map level: <span id="popup-map-level"></span>
+                </p>
+                <p id="new-map-instantiation-code"></p>
+            </div>
+        </div>
+	</body>
+
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/js_utils.js"></script>
+
+    <script type="text/javascript" src="../js/data/data-maps.js"></script>
+    <script type="text/javascript" src="../js/map_utils.js"></script>
+    <script type="text/javascript" src="../js/admin/createMap.js"></script>
+</html>

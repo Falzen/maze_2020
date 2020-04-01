@@ -1,0 +1,25 @@
+table#the-map {
+	border: 1px solid black;
+	margin: 5px auto;
+}
+
+table#the-map td {
+	width: 25px;
+	height: 25px;
+	background-color: #999;
+}
+.isWall {
+	background-color: black !important;
+}
+.isStart {
+	background-color: orange !important;
+}
+.isExit {
+	background-color: green !important;
+}
+.isVisited {
+	background-color: white !important;
+}
+.isPlayer {
+	background-color: gold !important;
+}
